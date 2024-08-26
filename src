@@ -1,1 +1,88 @@
+On the src folder :::
+
+app.js
+
+import Content from "./Content";
+import Footer from "./Footer";
+import Header from "./Header";
+
+
+function App() {  
+
+  return (
+    <div className="App">
+       <Header />
+       <Content />
+       <Footer/>
+    </div>
+  );
+}
+
+export default App;
+
+content.js:
+
+import React from 'react'
+import { useState } from 'react';
+
+const Content = () => {
+    const [name,setName] = useState("earn");
+    function handleNameChange(){
+        const names =["earn" , "grow" , "give"];
+        const int=Math.floor(Math.random()*3);
+        setName (names[int])
+      }
+      
+      
+
+  return (
+    <main>
+    <p>Lets {name} Money</p>
+    <button onClick={handleNameChange}>click</button>
+    </main>
+  )
+}
+
+export default Content
+
+header.js:
+
+import React from "react"
+
+const Header = () => {
+  return (
+    <header>
+        <h1>To do List</h1>
+    </header>
+  )
+}
+
+export default Header
+
+footer.js:
+import React from 'react'
+
+const Footer = () => {
+ const year = new Date();   
+  return (
+    <footer>Copyright &copy; {year.getFullYear()} </footer>
+  )
+}
+
+export default Footer
+
+index.js:
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
 
